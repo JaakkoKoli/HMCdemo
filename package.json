@@ -1,0 +1,27 @@
+{
+  "name": "hmc-demo",
+  "version": "1.0.0",
+  "private": true,
+  "description": "hmc-demo",
+  "author": "JaakkoKoli",
+  "keywords": [
+    "gatsby"
+  ],
+  "scripts": {
+    "develop": "gatsby develop",
+    "start": "gatsby develop",
+    "build": "gatsby build",
+    "serve": "gatsby serve",
+    "clean": "gatsby clean"
+  },
+  "dependencies": {
+    "@mdx-js/react": "^2.3.0",
+    "gatsby": "^5.13.3",
+    "gatsby-plugin-mdx": "^5.13.1",
+    "gatsby-source-filesystem": "^5.13.1",
+    "plotly.js": "^2.30.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-plotly.js": "^2.6.0"
+  }
+}
