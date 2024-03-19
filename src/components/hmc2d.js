@@ -4,7 +4,7 @@ import {styledButton,} from './hmc.module.css'
 
 
 const Hmc2d = (props) => {
-  const [count, setCount] = useState(0);
+  const [count, setCount] = useState(15);
 
   const plotLayout = {
     xaxis: {
@@ -24,7 +24,7 @@ const Hmc2d = (props) => {
   };
   return (
     <div>
-    <p>Acceptance ratio: {100*props.samples.length/10000.0}%</p>
+    <p>Acceptance ratio: {100*props.samples.length/1000.0}%</p>
       <Plot data={[
         {type: "scatter", 
         x: props.samples.slice(0,count).map((x) => x[0]),

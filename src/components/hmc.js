@@ -3,12 +3,12 @@ import Plot from './loadableplot';
 import {styledButton,} from './hmc.module.css'
 
 
-const xvals = Array.from({length: 1000}, (_, index) => index).map((x) => (x / 1000 * 12) - 6),
-yvals = xvals.map((x) => (1/(Math.sqrt(2*Math.PI)))*(1/5*Math.exp(-0.5*(x)**2) + 4/5*Math.exp(-0.5*(x - 3)**2)));
-const approximateFunction = (x, s, sigma) => s.map( (x2) => ((1/(sigma*Math.sqrt(2*Math.PI)))*Math.exp(-0.5*((x - x2)/sigma)**2)) )
-const Hmc = (props) => {
-  const [count, setCount] = useState(0);
 
+const Hmc = (props) => {
+  const [count, setCount] = useState(15);
+  const xvals = Array.from({length: 1000}, (_, index) => index).map((x) => (x / 1000 * 12) - 6),
+  yvals = xvals.map((x) => (1/(Math.sqrt(2*Math.PI)))*(1/5*Math.exp(-0.5*(x)**2) + 4/5*Math.exp(-0.5*(x - 3)**2)));
+  const approximateFunction = (x, s, sigma) => s.map( (x2) => ((1/(sigma*Math.sqrt(2*Math.PI)))*Math.exp(-0.5*((x - x2)/sigma)**2)) )
   const plotLayout = {
     xaxis: {
       range: [-6, 6],
@@ -28,7 +28,7 @@ const Hmc = (props) => {
   };
   return (
     <div>
-      <p>Acceptance ratio: {100*props.samples.length/10000.0}%</p>
+      <p>Acceptance ratio: {100*props.samples.length/1000.0}%</p>
       <Plot data={[
         {type: "histogram", 
         x: props.samples.slice(0,count),
@@ -42,7 +42,7 @@ const Hmc = (props) => {
 
         {type: "scattergl", 
         x: xvals, 
-        y: count !== 0 ? xvals.map( (x) => approximateFunction(x, props.samples.slice(0,count), 0.35).reduce((x2,x3) => x2+x3) / count) : [],
+        y: count !== 0 && props.samples.length !== 0 ? xvals.map( (x) => approximateFunction(x, props.samples.slice(0,count), 0.35).reduce((x2,x3) => x2+x3) / count) : [],
         name: "Approximated function"}
       ]} layout={plotLayout} /> 
     
