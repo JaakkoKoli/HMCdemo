@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import Plot from 'react-plotly.js';
+import Plot from './loadableplot';
 import {styledButton,} from './hmc.module.css'
 
 

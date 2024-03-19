@@ -1,4 +1,4 @@
-import * as React from 'react'
+import React from 'react'
 import Layout from '../components/layout'
 import Seo from '../components/seo'
 import Hmc2d from '../components/hmc2d';
@@ -17,8 +17,8 @@ const Demo2d = () => {
       }
     }
   }
-  const target = (x) => Math.log(Math.exp(-0.5*x[0]**2.0)*Math.exp(-0.5*x[1]**2.0));
-  const target2 = (x) => -20*(Math.sqrt(x[0]**2 + x[1]**2)-10)**2;
+  //const target = (x) => Math.log(Math.exp(-0.5*x[0]**2.0)*Math.exp(-0.5*x[1]**2.0));
+  const target = (x) => -20*(Math.sqrt(x[0]**2 + x[1]**2)-10)**2;
   return (
     <Layout pageTitle="2D Hamiltonian Monte Carlo demo">
       <p>Sampling a circular density function using Hamiltonian Monte Carlo.</p>
@@ -28,7 +28,7 @@ const Demo2d = () => {
         Leapfrog step size <input type="text" value={lfStepSize} onChange={(event) => setter(event, setLfStepSize)} /><p></p>
       </form>
       <p></p>
-      <Hmc2d samples={hmc2d([parseFloat(initialPosX), parseFloat(initialPosY)], 10000, Math.floor(parseFloat(lfSteps)), parseFloat(lfStepSize), target2)}></Hmc2d>
+      <Hmc2d samples={hmc2d([parseFloat(initialPosX), parseFloat(initialPosY)], 10000, Math.floor(parseFloat(lfSteps)), parseFloat(lfStepSize), target)}></Hmc2d>
     </Layout>
   )
 }
