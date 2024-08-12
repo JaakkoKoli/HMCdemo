@@ -5,6 +5,7 @@ import Hmc from '../components/hmc'
 import hmc from '../utils/hmc'
 
 const IndexPage = () => {
+  // initialise states for HMC parameters
   const [initialPos, setInitialPos] = React.useState(0.0),
   [lfSteps, setLfSteps] = React.useState(20),
   [lfStepSize, setLfStepSize] = React.useState(10.0);
